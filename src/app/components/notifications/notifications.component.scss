@@ -1,0 +1,108 @@
+@use '../../../variables/bg-colors';
+@use '../../../variables/colors';
+
+.notifications_list {
+    margin: 1.875rem 0 0;
+    padding: 0;
+    list-style: none;
+    li {
+        margin-bottom: .5rem;
+        padding: 1.125rem 1.25rem;
+        border-radius: .625rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.25rem;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &.unread {
+            background: bg-colors.$bg-unread-notification;
+            .notification_info::after {
+                content: '';
+                display: inline-block;
+                margin-left: .375rem;
+                width: .5rem;
+                aspect-ratio: 1;
+                background: bg-colors.$bg-el-1;
+                border-radius: 50%;
+            }
+        }
+        .user_img {
+            width: 2.75rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+        }
+        .notification_info {
+            margin: 0;
+        }
+        .notification_timestamp {
+            margin: .1875rem 0 0;
+            color: colors.$clr-font-timestamp;
+        }
+        a {
+            font-weight: 800;
+            &.username_link {
+                margin-right: .375rem;
+                color: colors.$clr-account-link;
+            }
+            &.post_link {
+                margin-left: .25rem;
+                color: colors.$clr-post-link;
+            }
+            &.group_link {
+                margin-left: .25rem;
+                color: colors.$clr-group-link;
+            }
+            &.notification_message {
+                display: block;
+                margin-top: .9375rem;
+                padding: 1rem 1.25rem;
+                color: colors.$clr-font-main;
+                font-weight: 400;
+                border: .0625rem solid colors.$clr-border;
+                border-radius: .3125rem;
+                &:hover {
+                    background: bg-colors.$bg-msg-hover;
+                }
+            }
+            &:hover {
+                color: colors.$clr-link-hover;
+            }
+        }
+        .notification_img {
+            margin-left: auto;
+            width: 2.8125rem;
+            aspect-ratio: 1;
+            border-radius: .3125rem;
+            cursor: pointer;
+            &:hover {
+                outline: .25rem solid colors.$clr-border;
+            }
+        }
+    }
+}
+
+@media(max-width: 25.9375rem) {
+    .notifications_list {
+        margin-top: 1.5625rem;
+        li {
+            margin-bottom: .6875rem;
+            padding: .9375rem;
+            gap: .875rem;
+            .user_img {
+                width: 2.5rem;
+            }
+            a {
+                &.username_link {
+                    margin-right: .25rem;
+                }
+                &.notification_message {
+                    padding: 1rem;
+                }
+            }
+            .notification_img {
+                width: 2.375rem;
+            }
+        }
+    }
+}

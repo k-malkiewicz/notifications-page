@@ -1,0 +1,27 @@
+@use './variables/fonts';
+@use './variables/colors';
+@use './variables/bg-colors';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: fonts.$font;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: bg-colors.$bg-body;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 0;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}

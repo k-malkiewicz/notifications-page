@@ -1,0 +1,43 @@
+<ul class="notifications_list">
+  <li
+    *ngFor="let notification of this.notificationsService.notifications"
+    [class.unread]="notification.unread"
+  >
+    <img
+      class="user_img"
+      [src]="notification.userImgSrc"
+      [alt]="notification.username"
+    />
+    <div>
+      <p class="notification_info">
+        <a class="username_link" href="javascript:void(0)">{{
+          notification.username
+        }}</a>
+        {{ notification.notificationAction }}
+        <a
+          *ngIf="
+            notification.notificationType === 'post' ||
+            notification.notificationType === 'group'
+          "
+          class="post_link"
+          href="javascript:void(0)"
+          >{{ notification.notificationItem }}</a
+        >
+      </p>
+      <p class="notification_timestamp">{{ notification.timestamp }}</p>
+      <a
+        *ngIf="notification.notificationType === 'message'"
+        class="notification_message"
+        href="javascript:void(0)"
+      >
+        {{ notification.notificationItem }}
+      </a>
+    </div>
+    <img
+      *ngIf="notification.notificationType === 'comment'"
+      class="notification_img"
+      [src]="notification.notificationItem"
+      [alt]="notification.username"
+    />
+  </li>
+</ul>

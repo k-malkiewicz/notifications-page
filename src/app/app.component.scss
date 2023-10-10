@@ -1,0 +1,69 @@
+@use '../variables/bg-colors';
+@use '../variables/colors';
+
+.notifications_section {
+    width: 45.625rem;
+    margin: 4.0625rem 0 6.25rem;
+    padding: 2rem 2rem 0;
+    background: bg-colors.$bg-section;
+    color: colors.$clr-font-main;
+    border-radius: .9375rem;
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        div {
+            display: flex;
+            align-items: center;
+            gap: .9375rem;
+        }
+        h1 {
+            margin: 0;
+            color: hsl(227, 10%, 18%);
+        }
+        .unread_notifications_count {
+            min-width: 2rem;
+            padding: .125rem 0;
+            background: bg-colors.$bg-el-2;
+            color: hsl(0, 0%, 100%);
+            font-weight: 800;
+            border-radius: .375rem;
+            text-align: center;
+        }
+        .all_as_read_btn {
+            border: none;
+            background: transparent;
+            color: colors.$clr-font-main;
+            font-size: 1rem;
+            &:hover {
+                color: colors.$clr-link-hover;
+            }
+        }
+    }
+}
+
+@media(max-width: 46.875rem) {
+    .notifications_section {
+        width: 25rem;
+    }
+}
+
+@media(max-width: 25.9375rem) {
+    .notifications_section {
+        width: 100%;
+        margin: 0;
+        padding: 1.5rem 1rem 1rem;
+        font-size: .875rem;
+        header {
+            div {
+                gap: .625rem;
+            }
+            h1 {
+                font-size: 1.25rem;
+            }
+            .all_as_read_btn {
+                font-size: .875rem;
+            }
+        }
+    }
+}
